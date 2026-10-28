@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/timescale/tsbs/pkg/targets"
 	"github.com/timescale/tsbs/pkg/targets/akumuli"
+	"github.com/timescale/tsbs/pkg/targets/arc"
 	"github.com/timescale/tsbs/pkg/targets/cassandra"
 	"github.com/timescale/tsbs/pkg/targets/clickhouse"
 	"github.com/timescale/tsbs/pkg/targets/constants"
@@ -25,6 +26,8 @@ func GetTarget(format string) targets.ImplementedTarget {
 		return timescaledb.NewTarget()
 	case constants.FormatAkumuli:
 		return akumuli.NewTarget()
+	case constants.FormatArc:
+		return arc.NewTarget()
 	case constants.FormatCassandra:
 		return cassandra.NewTarget()
 	case constants.FormatClickhouse:

@@ -17,6 +17,7 @@ generators: tsbs_generate_data \
 
 loaders: tsbs_load \
 		 tsbs_load_akumuli \
+		 tsbs_load_arc \
 		 tsbs_load_cassandra \
 		 tsbs_load_clickhouse \
 		 tsbs_load_cratedb \

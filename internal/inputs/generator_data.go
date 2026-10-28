@@ -124,6 +124,13 @@ func (g *DataGenerator) runSimulator(sim common.Simulator, serializer serialize.
 
 		currGroupID = (currGroupID + 1) % dgc.InterleavedNumGroups
 	}
+	// Serializers that buffer (e.g. Arc's columnar batches) must write
+	// their remaining points before the output is flushed.
+	if f, ok := serializer.(interface{ Flush() error }); ok {
+		if err := f.Flush(); err != nil {
+			return fmt.Errorf("can not flush serializer: %s", err)
+		}
+	}
 	return nil
 }
 
