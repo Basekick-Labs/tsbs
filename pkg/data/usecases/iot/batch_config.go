@@ -14,7 +14,7 @@ var (
 	eInsertPreviousChance = 0.5
 
 	// Zero values.
-	zeroTagChance   = 0.01
+	zeroTagChance   = 0.0 // arc-vs-tdengine: disabled, see methodology
 	zeroFieldChance = 0.1
 )
 
